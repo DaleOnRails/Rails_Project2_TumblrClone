@@ -1,0 +1,20 @@
+<!-- step:0 -->
+<h1>Make Something</h1>
+<!-- loop through this code and print out the form label, text-field, body-label, body-text-area & submit button-->
+<!-- loops are used in erb because it is more DRY then saying render for every line! -->
+<%= form_for :post, url: posts_path do |f| %>
+    <p>
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>    
+    </p>
+
+    <p> 
+        <%= f.label :body %><br>
+        <%= f.text_area :body %>
+    </p>
+
+    <p>
+        <%= f.submit %>
+    </p>
+
+<% end %>
