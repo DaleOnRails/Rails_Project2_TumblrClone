@@ -7,15 +7,22 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def create
+    @post = Post.new(post_params)
     #3.
     #this is how the post will be saved
     #include params(says to save the title and body)
     #params will be defined in the private method at bottom so they can be re-used and code will be DRY
-    @post = Post.new(post_params)
-    @post.save
+    if @post.save
+      redirect_to @post
+    else #(if post fails to save)
+      #render the post again.
+      #uses render instead of redirecct_to so that there is NO http refresh so the user wont lose the post content
+      render "new"
+    end
   end
 
   #5.
