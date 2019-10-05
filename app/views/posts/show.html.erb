@@ -1,22 +1,30 @@
 <div id="post_content">
   <!-- 2.show page will display the title, date of post creation, post body -->
-    <h1 class="title">
-        <%= @post.title %>
-    </h1>
-    <!-- 2.processes when the post was created and renders the date to browser = NOTE THIS FUNCTION -->
-    <p class="date">
-        Submitted <%= time_ago_in_words(@post.created_at) %> ago |
-        <!-- creates link for post editing -->
-        <%= link_to 'Edit', edit_post_path(@post) %> | 
-        <!-- delete route and method comes from rake route when resource was defined in routes.rb -->
-        <!-- creates link for delete plus a pop up message -->
-        <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?'} %>
+  <h1 class="title">
+    <%= @post.title %>
+  </h1>
+  <!-- 2.processes when the post was created and renders the date to browser = NOTE THIS FUNCTION -->
+  <p class="date">
+    Submitted <%= time_ago_in_words(@post.created_at) %> ago |
+    <!-- creates link for post editing -->
+    <%= link_to 'Edit', edit_post_path(@post) %> |
+    <!-- delete route and method comes from rake route when resource was defined in routes.rb -->
+    <!-- creates link for delete plus a pop up message -->
+    <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm:
+    'Are you sure?'} %>
+  </p>
 
-        </p>
+  <p class="body">
+    <%= @post.body %>
+  </p>
 
-    </p>
-
-    <p class="body">
-        <%= @post.body %>
-    </p>
+  <div id="comments">
+    <!-- responsible for rendering the comment -->
+    <!-- first part will render the comments partial -->
+    <!-- second part will render the form partial because i want the comments to render on top of the form  -->
+    <h2><%= @post.comments.count %> Comments</h2>
+    <%= render @post.comments %>
+    <h3>Join Discussion:</h3>
+    <%= render "comments/form" %>
+  </div>
 </div>
