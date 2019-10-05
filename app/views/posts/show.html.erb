@@ -1,12 +1,14 @@
-<!-- 2.show page will display the title, date of post creation, post body -->
-<h1 class="title">
-    <%= @post.title %>
-</h1>
-<!-- 2.processes when the post was created and renders the date to browser = NOTE THIS FUNCTION -->
-<p class="date">
-    Submitted <%= time_ago_in_words(@post.created_at) %> ago 
-</p>
+<div id="post_content">
+  <!-- 2.show page will display the title, date of post creation, post body -->
+    <h1 class="title">
+        <%= @post.title %>
+    </h1>
+    <!-- 2.processes when the post was created and renders the date to browser = NOTE THIS FUNCTION -->
+    <p class="date">
+        Submitted <%= time_ago_in_words(@post.created_at) %> ago 
+    </p>
 
-<p class="body">
-    <%= @post.body %>
-</p>
+    <p class="body">
+        <%= @post.body %>
+    </p>
+</div>
