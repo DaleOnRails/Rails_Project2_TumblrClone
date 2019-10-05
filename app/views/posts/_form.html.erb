@@ -1,0 +1,35 @@
+ <!-- loop through this code and print out the form label, text-field, body-label, body-text-area & submit button-->
+  <!-- loops are used in erb because it is more DRY then saying render for every line! -->
+  <%= form_for @post do |f| %>
+  <!-- essentially asks the posts how many errors there are and then list them -->
+  <% if @post.errors.any? %>
+  <div id="errors">
+    <!-- if more then one error then pluralize them -->
+    <!-- plus stop the post from saving if there are errors -->
+    <h2>
+      <%= pluralize(@post.errors.count, "error") %> stopped this post from
+      saving
+    </h2>
+    <!-- unordered list will list the errors -->
+    <ul>
+      <!-- loop through post errors and print each out -->
+      <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <% end %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+  <% end %>

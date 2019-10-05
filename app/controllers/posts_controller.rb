@@ -32,6 +32,32 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  # edit is responsible for the view file same as new
+  # to edit a post must first find the post by id same with update method
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  # create and UPDATE interacts with the database to ensure post is created or updated.
+  def update
+    @post = Post.find(params[:id])
+
+    # permits two parts of a post to be updated: title and body
+    if @post.update(params[:post].permit(:title, :body))
+      redirect_to @post
+    else
+      #if update fails then render edit again (so they have another chance to edit the post)
+      render "edit"
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    redirect_to root_path
+  end
+
   #4.
   #private methods are to apply to the methods above them. only in this file.
   private
