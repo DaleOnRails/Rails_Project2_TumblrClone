@@ -1,24 +1,16 @@
-# README
+# Purpose of Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://young-brushlands-01167.herokuapp.com/
 
-Things you may want to cover:
+# Feature Overview
+
+# What I Learnt/Reinforced Throughout Building This Project
+
+# Images
+
+# Application Specs
 
 * Ruby version
 
-* System dependencies
+# Running this app' on your local machine
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
