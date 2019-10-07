@@ -8,6 +8,11 @@
     </div>
 
     <!-- renders the comment delete button onto the page with a pop up message(are you sure?) -->
+
+    <!-- only show delete comment button if the user is signed in! -->
+    <% if user_signed_in? %>
     <p><%= link_to 'Delete', [comment.post, comment],method: :delete, class: "button", data: {
         confirm: 'Are you sure?' } %></p>
+    <% end %>
+
 </div> 
