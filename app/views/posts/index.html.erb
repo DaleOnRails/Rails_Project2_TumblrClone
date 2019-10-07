@@ -3,6 +3,6 @@
     <div class="post_wrapper">
         <h2 class="title"><%= link_to post.title, post %></h2>
         <div class="body"><%= truncate(post.body, length:100) %></div>
-        <p class="date"><%= time_ago_in_words(post.created_at) %></p>
+        <p class="date"><%= time_ago_in_words(post.created_at) %> ago </p>
     </div>
 <% end %>

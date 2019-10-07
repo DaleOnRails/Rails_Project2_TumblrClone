@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   end
   #posts controller # index action. This route comes from 'rake routes'
   root "posts#index"
+
+  #route for about page
+  get "/about", to: "pages#about"
 end
