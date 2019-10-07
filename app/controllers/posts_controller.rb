@@ -1,5 +1,9 @@
 class PostsController < ApplicationController
 
+  #in this application i have created authentication for the blog posts. That way only users who are logged into the application have the ability to edit, delete posts. Anyone who is not signed in can only see the index and post show page.
+  #this comes from the devise instructions. it forces the user to redirect to the login page if the user was not logged in.
+  before_action :authenticate_user!, except: [:index, :show]
+
   #1. Show all posts
   def index
     #6.show in descending order

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # this loop will nest will nests the comment route inside of the posts route because comments belong #to posts!
   resources :posts do
     resources :comments
